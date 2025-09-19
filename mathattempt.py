@@ -23,15 +23,16 @@ def is_float(number_check_f):
     return state_f
 
 def log_x(base_l,x):
-    attempt_counter = 1
+    attempt_counter = 0
     attempt = x
-    while(attempt != base_l):
-        attempt = attempt / base_l
-        if (attempt > base_l):
+    tried = False
+    while(attempt != base_l or not tried):
+        if (attempt >= base_l):
+            attempt = attempt / base_l
             attempt_counter += 1
         else:
-            attempt = attempt * 2/attempt
-            attempt_counter = attempt_counter
+            attempt = attempt * base_l/attempt
+            tried = True
     return attempt_counter
 
 def e():
@@ -43,4 +44,5 @@ def e():
 def exp(e_power):
     e_x = pwr(e(),e_power)
     return e_x
+
 
